@@ -1,0 +1,30 @@
+//
+//  ChartViewModel.swift
+//  Investment Comparison
+//
+//  Created by Iskandar Herputra Wahidiyat on 24/06/22.
+//
+
+import Foundation
+import UIKit
+
+class ChartViewModel {
+    var dataPoints = [Double]()
+    var barColor = UIColor.systemBlue
+    
+    var maxY: Double {
+        return dataPoints.sorted(by: >).first ?? 0
+    }
+    
+    var barGapPctOfTotal: CGFloat {
+        return CGFloat(0.2) / CGFloat(dataPoints.count - 1)
+    }
+    
+    var barWidthPctOfTotal: CGFloat {
+        return CGFloat(0.8) / CGFloat(dataPoints.count)
+    }
+    
+    var barCornerRadius: CGFloat {
+        return CGFloat(50 / dataPoints.count)
+    }
+}
